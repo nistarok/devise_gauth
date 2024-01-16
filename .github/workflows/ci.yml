@@ -86,7 +86,7 @@ jobs:
     - name: Run build
       run: /
         earthly --ci --allow-privileged +test --EARTHLY_RUBY_VERSION=$EARTHLY_RUBY_VERSION --EARTHLY_RAILS_VERSION=$EARTHLY_RAILS_VERSION --EARTHLY_DEVISE_VERSION=$EARTHLY_DEVISE_VERSION
-        if [[ -f exit_code ]]; then
+        if [ -f exit_code ]; then
           exit $(cat exit_code)
         else
           echo "'exit_code' file missing, something failed in previous command"
