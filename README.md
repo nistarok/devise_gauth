@@ -1,6 +1,6 @@
 # Devise Google Authenticator
 
-This is a fork of the (devise)[https://github.com/plataformatec/devise] extension to allow your app to utilise (Google Authenticator)[http://code.google.com/p/google-authenticator/] for Time-based One Time Passwords (TOTP).
+This is a fork of the [devise](https://github.com/plataformatec/devise) extension to allow your app to utilise [Google Authenticator](http://code.google.com/p/google-authenticator/) for Time-based One Time Passwords (TOTP).
 
 The current version of this gem support Rails 4.x, 5.x and 6.x.
 
