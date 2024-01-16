@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.4.2] - 2024-01-16
 ### Changed
 - Relaxes Rails version
 
@@ -86,7 +88,8 @@ tidied up some of the code - changed the references to AsteriskLabs
 ## [0.1.0] - 2011-11-21
 initial release, just to push it up, is still very early and requires a bit work
 
-[Unreleased]: https://github.com/pharmony/devise_gauth/compare/v0.4.1...master
+[Unreleased]: https://github.com/pharmony/devise_gauth/compare/v0.4.2...master
+[0.4.2]: https://github.com/pharmony/devise_gauth/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/pharmony/devise_gauth/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/pharmony/devise_gauth/compare/v0.3.16...v0.4.0
 [0.3.16]: https://github.com/pharmony/devise_gauth/compare/v0.3.15...v0.3.16
