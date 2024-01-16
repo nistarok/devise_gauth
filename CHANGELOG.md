@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Compatibility issue with Rails 6.1 when running migration scripts from test suite
+- Compatibility issue with Rails 6.1 when using `I18n.t` and variable interpolation
 - Compatibility issue with Rails 4.x regarding `gauth_enabled` default value
 - Exit code when running on the CI
 

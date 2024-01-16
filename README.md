@@ -112,6 +112,7 @@ And in the case you'd like to test a different version of Ruby/Rails/Devise:
 ```
 earthly --allow-privileged +test --EARTHLY_RUBY_VERSION=2.5 --EARTHLY_RAILS_VERSION=5.2.8.1 --EARTHLY_DEVISE_VERSION=4.8.1
 ```
+_Be careful when switching between Rails versions, don't forget to delete your local Gemfile.lock file in order to avoid gem issues._
 
 ## Thanks (and unknown contributors)
 
