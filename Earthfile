@@ -110,10 +110,16 @@ rubocop:
 # This target is used to publish this gem to rubygems.org.
 #
 # Prerequiries
-# You should have login against Rubygems.org so that it has created
-# the `~/.gem` folder and stored your API key.
+# 1. You need an API key with the "Push rubygem" scope
+# 2. You should create a `.secret` file containing:
+# ```
+# GEM_HOST_API_KEY=<your API key here>
+# ```
 #
 # Then use the following command:
+# earthly +gem --RUBYGEMS_OTP=123456
+#
+# In the case you don't want to use a `.secret` file, then use this command:
 # earthly --secret GEM_HOST_API_KEY=<API KEY> +gem --RUBYGEMS_OTP=123456
 gem:
     FROM +dev
@@ -126,7 +132,6 @@ gem:
     COPY --chown rubydev:rubydev README.md /gem/
 
     RUN gem build devise_gauth.gemspec
-    RUN --secret GEM_HOST_API_KEY echo "GEM_HOST_API_KEY is $GEM_HOST_API_KEY"
     RUN --secret GEM_HOST_API_KEY gem push --otp $RUBYGEMS_OTP devise_gauth-*.gem
 
     SAVE ARTIFACT devise_gauth-*.gem AS LOCAL ./devise_gauth.gem
