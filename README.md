@@ -9,7 +9,6 @@ The current version of this gem support Rails 4.x, 5.x and 6.x.
 Add the gem to your Gemfile (don't forget devise too):
 
 ```ruby
-gem 'devise'
 gem 'devise_gauth', '0.3.16'
 ```
 
