@@ -84,7 +84,7 @@ jobs:
     - name: Earthly version
       run: earthly --version
     - name: Run build
-      run: /
+      run: |
         earthly --ci --allow-privileged +test --EARTHLY_RUBY_VERSION=$EARTHLY_RUBY_VERSION --EARTHLY_RAILS_VERSION=$EARTHLY_RAILS_VERSION --EARTHLY_DEVISE_VERSION=$EARTHLY_DEVISE_VERSION
         if [ -f exit_code ]; then
           exit $(cat exit_code)
