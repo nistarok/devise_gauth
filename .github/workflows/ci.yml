@@ -22,7 +22,7 @@ jobs:
           # Rails 5.x branch
           #
           # Rails 5.0 compatible versions
-          - ruby: 2.4
+          - ruby: 2.5 # We should use 2.4 but Nokogiri requires 2.5
             rails: 5.0.7.2
             devise: 4.8.1
           # Rails 5.1 compatible versions
@@ -47,10 +47,6 @@ jobs:
             devise: 4.9.3
           # Rails 6.0 compatible versions
           - ruby: 2.7
-            rails: 6.0.6.1
-            devise: 4.9.3
-          # Rails 6.0 compatible versions
-          - ruby: 3.0
             rails: 6.0.6.1
             devise: 4.9.3
           # Rails 6.1 compatible versions
