@@ -114,23 +114,19 @@ rubocop:
 # the `~/.gem` folder and stored your API key.
 #
 # Then use the following command:
-# earthly +gem --GEM_CREDENTIALS="$(cat ~/.gem/credentials)" --RUBYGEMS_OTP=123456
+# earthly --secret GEM_HOST_API_KEY=<API KEY> +gem --RUBYGEMS_OTP=123456
 gem:
     FROM +dev
 
-    ARG GEM_CREDENTIALS
     ARG RUBYGEMS_OTP
 
-    COPY --chown rubydev:rubydev .git/ /gem/
+    COPY --chown rubydev:rubydev .git/ /gem/.git/
     COPY --chown rubydev:rubydev CHANGELOG.md /gem/
     COPY --chown rubydev:rubydev LICENSE.txt /gem/
     COPY --chown rubydev:rubydev README.md /gem/
 
-    RUN gem build devise_gauth.gemspec \
-        && mkdir ~/.gem \
-        && echo "$GEM_CREDENTIALS" > ~/.gem/credentials \
-        && cat ~/.gem/credentials \
-        && chmod 600 ~/.gem/credentials \
-        && gem push --otp $RUBYGEMS_OTP devise_gauth-*.gem
+    RUN gem build devise_gauth.gemspec
+    RUN --secret GEM_HOST_API_KEY echo "GEM_HOST_API_KEY is $GEM_HOST_API_KEY"
+    RUN --secret GEM_HOST_API_KEY gem push --otp $RUBYGEMS_OTP devise_gauth-*.gem
 
     SAVE ARTIFACT devise_gauth-*.gem AS LOCAL ./devise_gauth.gem
