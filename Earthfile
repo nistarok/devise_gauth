@@ -1,9 +1,13 @@
 VERSION 0.7
 
+#
+# Please check on Ruby/Rails version compatibilities from https://www.fastruby.io/blog/ruby/rails/versions/compatibility-table.html
+#
+
 # This allows one to change the running Ruby version with:
 #
 # `earthly --allow-privileged +test --EARTHLY_RUBY_VERSION=3`
-ARG --global EARTHLY_RUBY_VERSION=2.7
+ARG --global EARTHLY_RUBY_VERSION=2.5
 
 # This allows one to change the running Rails version with:
 #
@@ -86,6 +90,8 @@ test:
                 || echo $? > exit_code)
     END
 
+    RUN echo "Exit code is $(cat exit_code)"
+
     SAVE ARTIFACT exit_code AS LOCAL exit_code
 
     IF [ "$(cat exit_code)" != "0" ]
@@ -124,6 +130,7 @@ rubocop:
 gem:
     FROM +dev
 
+    ENV PUBLISHING_GEM=true
     ARG RUBYGEMS_OTP
 
     COPY --chown rubydev:rubydev .git/ /gem/.git/

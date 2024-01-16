@@ -13,6 +13,11 @@ else
   include Devise::TestHelpers
 end
 
+# Destroys the existing database file before running the suite to prevent issue
+# when switching Rails versions.
+test_db_filepath = File.expand_path('rails_app/db/test.sqlite3', __dir__)
+File.exist?(test_db_filepath) && FileUtils.rm_f(test_db_filepath)
+
 require "orm/#{DEVISE_ORM}"
 require 'rails/test_help'
 require 'capybara/rails'

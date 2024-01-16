@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Rails 4.2 to the CI matrix
+
+### Changed
+- Relaxes dependencies versions when publishing this gem on rubygems.org
+
+### Fixed
+- Compatibility issue with Rails 6.1 when running migration scripts from test suite
+- Compatibility issue with Rails 4.x regarding `gauth_enabled` default value
+- Exit code when running on the CI
 
 ## [0.4.0] - 2024-01-16
 ### Changed

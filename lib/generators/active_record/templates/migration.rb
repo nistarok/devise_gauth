@@ -4,7 +4,7 @@ class DeviseGoogleAuthenticatorAddTo<%= table_name.camelize %> < ActiveRecord::M
   def self.up
     change_table :<%= table_name %> do |t|
       t.string  :gauth_secret
-      t.string  :gauth_enabled, default: '0'
+      t.string  :gauth_enabled, default: <%= Rails.version >= '5.2' ? '0' : 'f' %>
       t.string  :gauth_tmp
       t.datetime  :gauth_tmp_datetime
     end

@@ -11,6 +11,14 @@ jobs:
       matrix:
         include:
           #
+          # Rails 4.x branch
+          #
+          # Rails 4.2 compatible versions
+          - ruby: 2.5
+            rails: 4.2.11.3
+            devise: 4.8.1
+
+          #
           # Rails 5.x branch
           #
           # Rails 5.0 compatible versions
@@ -76,4 +84,11 @@ jobs:
     - name: Earthly version
       run: earthly --version
     - name: Run build
-      run: earthly --ci --allow-privileged +test --EARTHLY_RUBY_VERSION=$EARTHLY_RUBY_VERSION --EARTHLY_RAILS_VERSION=$EARTHLY_RAILS_VERSION --EARTHLY_DEVISE_VERSION=$EARTHLY_DEVISE_VERSION
+      run: /
+        earthly --ci --allow-privileged +test --EARTHLY_RUBY_VERSION=$EARTHLY_RUBY_VERSION --EARTHLY_RAILS_VERSION=$EARTHLY_RAILS_VERSION --EARTHLY_DEVISE_VERSION=$EARTHLY_DEVISE_VERSION
+        if [[ -f exit_code ]]; then
+          exit $(cat exit_code)
+        else
+          echo "'exit_code' file missing, something failed in previous command"
+          exit 1
+        fi

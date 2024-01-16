@@ -2,7 +2,10 @@
 
 This is a fork of the [devise](https://github.com/plataformatec/devise) extension to allow your app to utilise [Google Authenticator](http://code.google.com/p/google-authenticator/) for Time-based One Time Passwords (TOTP).
 
-The current version of this gem support Rails 4.x, 5.x and 6.x.
+The current version of this gem support Rails from version 4.2 (older versions
+are requiring older version of Ruby, which is hard to maintain), until version
+6.1.x.\
+For more details see the `.github/workflows/ci.yml` file.
 
 ## Installation
 

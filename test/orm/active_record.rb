@@ -5,10 +5,15 @@ if ENV.fetch('CI', nil)
   ActiveRecord::Base.logger = Logger.new(nil)
 end
 
-migration_scripts_path = File.expand_path('../../rails_app/db/migrate/', __FILE__)
+migration_scripts_path = File.expand_path('../rails_app/db/migrate/', __dir__)
 
 if Rails.version < '5.2'
   ActiveRecord::Migrator.migrate(migration_scripts_path)
-else
+elsif Rails.version >= '5.2' && Rails.version < '6.0'
   ActiveRecord::MigrationContext.new(migration_scripts_path).migrate
+else
+  ActiveRecord::MigrationContext.new(
+    migration_scripts_path,
+    ActiveRecord::Base.connection.schema_migration
+  ).migrate
 end

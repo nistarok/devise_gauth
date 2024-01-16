@@ -25,7 +25,11 @@ module DeviseGoogleAuthenticator
     end
 
     def gauth_enabled
-      apply_devise_schema :gauth_enabled, Integer, { default: 0 }
+      if Rails.version >= '5.2'
+        apply_devise_schema :gauth_enabled, String, { default: 'f' }
+      else
+        apply_devise_schema :gauth_enabled, Integer, { default: 0 }
+      end
     end
 
     def gauth_tmp
