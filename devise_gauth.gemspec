@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
     spec.add_runtime_dependency 'railties', '>= 4.2', '< 7'
   else
     devise_version = '4.8.0' #ENV.fetch('EARTHLY_DEVISE_VERSION')
-    rails_min_version ='7' #ENV.fetch('EARTHLY_RAILS_VERSION')
+    rails_min_version ='6' #ENV.fetch('EARTHLY_RAILS_VERSION')
     rails_max_version = (rails_min_version.split('.').first.to_i + 1).to_s
 
     spec.add_runtime_dependency 'actionmailer', "~> #{rails_min_version}",
