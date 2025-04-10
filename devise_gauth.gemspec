@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   else
     devise_version = '4.8.0' #ENV.fetch('EARTHLY_DEVISE_VERSION')
     rails_min_version ='6' #ENV.fetch('EARTHLY_RAILS_VERSION')
-    rails_max_version = (rails_min_version.split('.').first.to_i + 2).to_s
+    rails_max_version = 8.0 #(rails_min_version.split('.').first.to_i + 2).to_s
 
     spec.add_runtime_dependency 'actionmailer', "~> #{rails_min_version}",
                                 "< #{rails_max_version}"
