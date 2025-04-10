@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
 
     spec.add_runtime_dependency 'actionmailer', "~> #{rails_min_version}",
                                 "< #{rails_max_version}"
-    spec.add_runtime_dependency 'devise', "~> #{devise_version}"
+    spec.add_runtime_dependency 'devise', ">= #{devise_version}"
     spec.add_runtime_dependency 'railties', "~> #{rails_min_version}",
                                 "< #{rails_max_version}"
   end
